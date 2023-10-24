@@ -1,0 +1,62 @@
+
+:root{
+    --ofcanvas-width:270px;
+    --TopNavBarHeight: 56px;
+}
+
+/*dropdown*/
+/*.bi-person-down{
+    font-size: 30px;
+}
+
+/*sidebar*/
+
+.sidebar-nav{
+    width: var(--ofcanvas-width );
+}
+
+@media (min-width:992px)  {
+    body{
+        overflow: auto !important;
+    }
+    .offcanvas-backdrop::before{
+        display: none;
+    }
+    .sidebar-nav{
+        transform: none;
+        visibility: visible  !important;
+        top: var(--TopNavBarHeight);
+        height: calc(100% - var(--TopNavBarHeight));
+    }
+    main{
+        margin-left: var(--ofcanvas-width);
+    }
+    
+}
+
+
+/*dashboard links */
+
+.nav-link{
+    color: whitesmoke;
+}
+
+.nav-link :is(:hover , :focus){
+    color: whitesmoke;
+    opacity: 1;
+}
+
+.active{
+    color: darkred;
+}
+/*Icons*/
+.ArrowIcon{
+    margin-top: 6rem;
+    margin-inline: 3px;
+}
+/*Progress bars spacing*/
+
+.margin-container{
+    margin: 1rem;
+    padding: 2px;
+}

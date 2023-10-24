@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--bootstrap-->
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.css">
+    <!--icons-->
+    
+    <!--my css-->
+      <link rel="stylesheet" href="./assets/index.css">
+    <title>Personal Manager</title>
+</head>
+<!--navigation and side bar-->
+
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Personal Dashboard</a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="/comunication" class="nav-link">Comunication</a></li>
+            <li class="nav-item"><a href="/info" class="nav-link">Developer Info</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Donate</a></li>
+        </ul>
+    </div>
+</nav>
+<!--sidebar-->
+<div class="offcanvas offcanvas-start bg-dark sidebar-nav text-white" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-body">
+        <nav class="dashboard-nav">
+            <ul class="navbar-nav text-center">
+                <li>
+                    <div class="text-muted small px-3">ΕΡΓΑΛΕΙΑ</div>
+                </li>
+                <li>
+                    <span class="p-1">
+                        <a href="index.html" class="active nav-link">
+                            ΕΞΟΔΑ/ΕΣΟΔΑ
+                        </a>
+                    </span>
+                </li>
+                <li class="my-4">
+                    <hr class="dropdown-divider" />
+                </li>
+                
+                <li>
+                    <span class="p-1">
+                        <a href="#" class="nav-link">
+                            ΨΗΦΙΑΚΑ ΠΟΡΤΟΦΟΛΙΑ 
+                        </a>
+                    </span>
+                </li>
+                <li class="my-4">
+                    <hr className="dropdown-divider" />
+                </li>
+                <li>
+                    <span class="p-1">
+                        <a href="#" class="nav-link">
+                            ΥΠΟΧΡΕΩΣΕΙΣ 
+                        </a>
+                    </span>
+                </li>
+                <li className="my-4">
+                    <hr className="dropdown-divider" />
+                </li>
+                <li>
+                    <span class="p-1">
+                        <a href="#" class="nav-link">
+                            ΕΡΓΑΣΙΑ/ΠΛΗΡΩΜΗ 
+                        </a>
+                    </span>
+
+                </li>
+                <li className="my-4">
+                    <hr className="dropdown-divider" />
+                </li>
+                <li>
+                    <div class="text-muted small px-3">ΠΡΟΣΒΑΣΙΜΟΤΗΤΑ</div>
+                </li>
+                <li>
+                    <span class="p-1">
+                        <a href="#" class="nav-link">
+                            ΜΑΥΡΟ ΘΕΜΑ  
+                        </a>
+                    </span>
+
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+</div>
+<!--Main Area-->
+<main className="mt-1 pt-3">
+    <div class="container">
+        <h3 class="text-muted mt-4 p-2">Kυριο Budget</h3>
+        <hr class="bg-dark">
+        <div class="row text-center">
+            <div class="col-md-5">
+                <!--Form budget-->
+                    <h4>Budget</h4>
+                    <div class="mb-3 shadow-lg p-4">
+                        <label for="Current Budget" class="form-label m-1">Κυριο Budget</label>
+                        <input type="number" name="CurrentBudget"  id="CurrenBudget" class="form-control m-1" placeholder="Κυριο Budget">
+                        <label for="Account" class="form-label m-1">Σε λογαριασμο</label>
+                        <input type="text" name="Account" class="form-control m-1"  id="Account" placeholder="Σε λογαριασμο">
+                        <button  class="btn btn-primary w-100 m-2" id="SaveBudget">Save</button>    
+                    </div>
+            </div>
+            <div class="col-md-2">
+                <img src="./assets/img/Icons/arrows-h-svgrepo-com.svg" class="img-fluid w-50 ArrowIcon" >
+            </div>
+            <!--Budget Display-->
+            <div class="col-md-5">
+                <h4>Yπολοιπο</h4>
+                <h4 id="Budget_text_display"></h4>
+                <p class="text-muted">Σε λογαριασμο</p>
+                <h4 id="Αccount_display"></h4>
+
+                <div class="progress">
+                    <div class="progress-bar bg-success" 
+                         role="progressbar" 
+                         id="budgetProgressBar" 
+                         aria-valuenow=""
+                         aria-valuemin="0" 
+                         aria-valuemax="100" >
+                    </div>
+                </div>
+                </div>
+                <hr class="bg-dark">
+                <!--incomes and expenses-->
+                <div class="col-md-6">
+                    <div class="mb-3 shadow-lg p-4">
+                        <!--Expenses-->
+                        <h4 class="text-muted">Kαταχωρηση Εξοδων</h4>
+                        <label for="Expense Type" class="form-label m-1">Eξοδο</label>
+                        <input type="number" name="Expense Type"  id="ExpenseNumber" class="form-control m-1" placeholder="EΞΟΔΟ">
+                        <label for="Account" class="form-label m-1">Aπο λογαριασμο</label>
+                        <input type="text" name="Account" class="form-control m-1"  id="From_Account" placeholder="Aπο λογαριασμο">
+                        <button  class="btn btn-primary w-100 m-2" id="SaveExpense">Save</button>    
+
+                    </div>
+                </div>
+                <!--Analatycs-->
+                <div class="col-md-6 MonthAnalytics">
+                    <h4 class="text-muted">Aναλυτικα</h4>
+                    <div class="analytics_group d-flex justify-content-evenly">
+                        <div class="expense">
+                            <h5 class="text-muted">
+                                Συνολικα Εξοδα 
+                            </h5>
+                            <p id="expense-display"></p>
+                            <h5 class="text-muted">
+                                Σε λογαριασμο 
+                            </h5>        
+                            <p id="AccountDisplay"></p>
+                        </div>
+                        <div class="Income">
+                            <h5 class="text-muted">
+                                Συνολικα Eσοδα 
+                            </h5>
+                            <p id="incomeDisplay"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <h4 class="text-muted">Kαταχωρηση Εσοδων</h4>
+                    <label for="Income Number" class="form-label m-1">Tιμη Εσοδου</label>
+                    <input type="number" name="Income Number" placeholder="Tιμη" id="Income_Number"  class="form-control m-1">
+                    <label for="Account" class="form-label m-1">Σε λογαριασμο</label>
+                    <input type="text" name="Account" class="form-control m-1"  id="To_Account" placeholder="Aπο λογαριασμο">
+                    <button  class="btn btn-primary w-100 m-2" id="Save_Income">Save</button>    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<body>
+<script src="assets/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.5.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.5.3"></script>
+</body>
+</html>

@@ -24,18 +24,18 @@ document.querySelector(".btn.btn-dark").addEventListener("click", function() {
 });
 
 //count the work days 
-
-let SaveBtn = document.getElementById("SaveDays");
+let SaveBtn = document.getElementById("SaveDays")
 SaveBtn.addEventListener("click", () => {
-    let WorkDaysInputs = document.querySelectorAll("[name='WorkDay']");
-    let DaysDisplay = document.getElementById("DaysDisplay");
-    let count = 0;
-
-    WorkDaysInputs.forEach(input => {
-        if (input.value.trim() !== "") {
-            count++;
-        }
-    });
+    let tableRows = document.querySelectorAll(".table tbody tr");
+    let DaysCounter = document.getElementById("DaysCounter");
     
-    DaysDisplay.innerText = count;
+    // Εδώ χρησιμοποιούμε την ιδιότητα length του NodeList για να πάρουμε τον αριθμό των γραμμών
+    let count = tableRows.length;
+
+    DaysCounter.innerText = `Ημέρες που έχετε δουλέψει: ${count}`;
+
+    //payment calculation 
+    
+    let FinalPaymentInputs = document.querySelectorAll()
+
 });

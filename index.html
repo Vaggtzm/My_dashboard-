@@ -54,7 +54,7 @@
                 </li>
                 <li>
                     <span class="p-1">
-                        <a href="#" class="nav-link">
+                        <a href="#" class="nav-link" id="manipulation_Todo">
                             ΥΠΟΧΡΕΩΣΕΙΣ 
                         </a>
                     </span>
@@ -64,7 +64,7 @@
                 </li>
                 <li>
                     <span class="p-1">
-                        <a href="#" class="nav-link">
+                        <a href="./Pages/work/Work.html" class="nav-link">
                             ΕΡΓΑΣΙΑ/ΠΛΗΡΩΜΗ 
                         </a>
                     </span>
@@ -90,7 +90,7 @@
     </div>
 </div>
 <!--Main Area-->
-<main className="mt-1 pt-3">
+<main className="mt-1 pt-3" id="MainArea">
     <div class="container">
         <h3 class="text-muted mt-4 p-2">Kυριο Budget</h3>
         <hr class="bg-dark">
@@ -166,8 +166,6 @@
                     <h4 class="text-muted">Kαταχωρηση Εσοδων</h4>
                     <label for="Income Number" class="form-label m-1">Tιμη Εσοδου</label>
                     <input type="number" name="Income Number" placeholder="Tιμη" id="Income_Number"  class="form-control m-1">
-                    <label for="Account" class="form-label m-1">Σε λογαριασμο</label>
-                    <input type="text" name="Account" class="form-control m-1"  id="To_Account" placeholder="Aπο λογαριασμο">
                     <button  class="btn btn-primary w-100 m-2" id="Save_Income">Save</button>    
 
                 </div>
@@ -177,6 +175,7 @@
 </main>
 <body>
 <script src="assets/index.js"></script>
+<script src="assets/manipulation.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.5.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.5.3"></script>
 </body>

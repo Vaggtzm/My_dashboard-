@@ -65,7 +65,6 @@ SaveExpense.addEventListener('click', () => {
 });
 
 //incomes
-
 let SaveIncomeBtn = document.getElementById("Save_Income");
 
 SaveIncomeBtn.addEventListener('click', () => {
@@ -73,7 +72,6 @@ SaveIncomeBtn.addEventListener('click', () => {
     let IncomeDisplay = document.getElementById("incomeDisplay"); // display for the total income
     let Budget_Text_Display = document.getElementById("Budget_text_display");
     let progressBar = document.getElementById("budgetProgressBar");
-    let ToAccount = document.getElementById("To_Account"); // account input
 
     // Parse current budget, income, and total income values
     let CurrentBudget = parseFloat(Budget_Text_Display.innerText.replace("€", "")) || 0;
@@ -82,26 +80,25 @@ SaveIncomeBtn.addEventListener('click', () => {
 
     // Ensure the income value is valid (greater than 0) before processing
     if (IncomeValue > 0) {
-        // Add income to the budget
+        // Add income to the budget and to the total income
         let NewBudgetValue = CurrentBudget + IncomeValue;
-
-        // Update total income
         TotalIncome += IncomeValue;
-        IncomeDisplay.innerText = TotalIncome.toFixed(2) + "€";
 
-        // Update the account display (if you want to track the source of the latest income)
-        document.getElementById("AccountDisplay").innerText = ToAccount.value;
+        // Update total income display
+        IncomeDisplay.innerText = TotalIncome.toFixed(2) + "€";
 
         // Update budget display
         Budget_Text_Display.innerText = NewBudgetValue.toFixed(2) + "€";
 
         // Calculate new percentage for the progress bar
-        let maxBudget = parseFloat(progressBar.innerText.split("€")[1]); // Parse the original budget value from progressBar's text
+        let maxBudget = parseFloat(progressBar.getAttribute("aria-valuemax"));
         let percentage = (NewBudgetValue / maxBudget) * 100;
 
-        // Update the progress bar
+        // Update the progress bar to reflect the acquired budget
         progressBar.style.width = percentage + "%";
-        progressBar.setAttribute("aria-valuenow", percentage);
+        progressBar.setAttribute("aria-valuenow", NewBudgetValue);
         progressBar.innerText = "€" + NewBudgetValue.toFixed(2);
     }
 });
+
+
